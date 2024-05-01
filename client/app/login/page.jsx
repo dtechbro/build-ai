@@ -32,14 +32,14 @@ export default function Login() {
 
     try {
       const response = await axios.post(
-        "https://aleeyah-api.vercel.app/auth/login",
+        "https://aleeyah.onrender.com/auth/login",
         formData,
       );
       console.log(response?.data);
       setUserToken(response?.data?.token);
       setUserId(response?.data?.user?.id); // Optional: Store token in local storage
       setUsername(response?.data?.user?.username); // Optional: Store token in local storage
-      toast.success(response.data.message, {
+      toast.success(response?.data?.message, {
         position: "top-center",
       });
 
@@ -131,7 +131,7 @@ export default function Login() {
           </div>
           {formData.password.length > 6 && formData.email.length > 0 ? (
             loading ? (
-              <button className="bg-green-200 p-4 md:p-6 rounded text-white">
+              <button className="bg-green-200 flex justify-center items-center p-4 md:p-6 rounded text-white">
                 <AiOutlineLoading3Quarters className="text-primarycolor font-bold animate-spin" />
               </button>
             ) : (

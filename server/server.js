@@ -5,7 +5,9 @@ const authRoutes = require("./routes/auth");
 const connectToDatabase = require("./config/database");
 app.use(
   cors({
-    origin: ["http://localhost:300", "https://aleeyah-api.vercel.app/"],
+    origin: ["https://aleeyah.onrender.com"],
+    methods: ["POST", "GET"],
+    credentials: true
   }),
 );
 
