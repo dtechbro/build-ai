@@ -5,7 +5,7 @@ const authRoutes = require("./routes/auth");
 const connectToDatabase = require("./config/database");
 app.use(
   cors({
-    origin: ["https://build-ai-wine.vercel.app"],
+    origin: ["https://build-ai-aleeyah.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true
   }),
