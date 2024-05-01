@@ -5,7 +5,7 @@ const authRoutes = require("./routes/auth");
 const connectToDatabase = require("./config/database");
 app.use(
   cors({
-    origin: ["https://aleeyah.onrender.com"],
+    origin: ["https://build-ai-wine.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true
   }),
