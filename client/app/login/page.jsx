@@ -33,20 +33,21 @@ export default function Login() {
     try {
       const response = await axios.post(
         "https://aleeyah.onrender.com/auth/login",
-        formData,
+        formData
       );
       console.log(response?.data);
       setUserToken(response?.data?.token);
       setUserId(response?.data?.user?.id); // Optional: Store token in local storage
-      setUsername(response?.data?.user?.username); // Optional: Store token in local storage
-      toast.success(response?.data?.message, {
+      setUsername(response?.data?.user?.username)
+      // Optional: Store token in local storage
+      toast.success(response.data.message, {
         position: "top-center",
       });
 
       setTimeout(() => {
-        router.push(` /${userId}/bot`); // Redirect to login page after successful signup
+        router.push(`/${userId}/chat`);
       }, 3000);
-      // Redirect to dashboard after successful login
+      
     } catch (error) {
       console.error(error); // Display error message
       toast.error(error.response?.data?.message, {
@@ -56,12 +57,6 @@ export default function Login() {
       setloading(false);
     }
   };
-
-  useEffect(() => {
-    if (userToken) {
-      router.push(` /${userId}/chat`); // Redirect to home page or desired authenticated route
-    }
-  }, [userToken, userId, router]);
 
   return (
     <main className="w-full h-screen md:w-2/6 mx-auto flex flex-col items-center p-4 md:p-2 md:justify-center gap-6">

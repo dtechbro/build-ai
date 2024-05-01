@@ -107,7 +107,7 @@ const ChatBot = () => {
                       "I have some ingredients what can make out of it",
                     )
                   }
-                  className="p-4 md:p-8 rounded-lg h-[150px] md:h-[200px] cursor-pointer hover:border-[2.5px] hover:border-primarycolor bg-gray-50"
+                  className="p-4 md:p-8 rounded-lg h-[150px] md:h-[200px] cursor-pointer border-transparent transition-colors hover:border-[2.5px] hover:border-primarycolor bg-gray-50"
                 >
                   <h1 className="text-gray-400 text-sm md:text-lg">
                     I have some ingredients what can i make out of it?

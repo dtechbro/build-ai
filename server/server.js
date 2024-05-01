@@ -3,14 +3,6 @@ const express = require("express");
 const authRoutes = require("./routes/auth");
 // const recipeRoutes = require("./routes/recipe");
 const connectToDatabase = require("./config/database");
-app.use(
-  cors({
-    origin: ["https://build-ai-aleeyah.vercel.app"],
-    methods: ["POST", "GET"],
-    credentials: true
-  }),
-);
-
 const PORT = 8000;
 
 const app = express();
@@ -19,21 +11,19 @@ connectToDatabase();
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-// Assuming you have a valid API key stored in environment variable
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-let currentChatSession; // Variable to store the chat session
+let currentChatSession;
 
 app.use(
   cors({
-    origin: ["https://aleeyah.vercel.app"],
+    origin: "https://aleeyah.vercel.app",
     methods: ["POST", "GET"],
-    credentials: true,
-  }),
+    credentials: true
+  })
 );
 app.use(express.json());
 app.use("/auth", authRoutes);
-// app.use("/recipes", recipeRoutes);
 
 app.post("/recipes/generate", async (req, res) => {
   // Check if a chat session exists, otherwise create a new one
